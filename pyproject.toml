@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gamma-linear-combination"
+version = "0.1.0"
+description = "Multi-engine implementation of toolbox.stats.GammaLinearCombination for linear combinations of independent Gamma random variables"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Liam Hsieh" }
+]
+dependencies = [
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "matplotlib>=3.7.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "ipykernel>=6.29.0",
+    "nbformat>=5.10.0",
+    "nbclient>=0.10.0",
+]
+
+[project.scripts]
+gamma-benchmark = "gamma_linear_combination.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["gamma_linear_combination*", "toolbox*"]
